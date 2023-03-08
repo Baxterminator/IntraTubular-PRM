@@ -3,7 +3,6 @@ function config = generateRandomConfiguration()
     %global map
     global list_1x list_1y
 
-    
     found = false;
 
     while ~found
@@ -18,7 +17,6 @@ function config = generateRandomConfiguration()
             if abandon
                 break
             end
-            disp(j);
             i=0;    % ième tentative de faire rentrer le bras avec l'angle j dans le tuyau
             detect=true;
             while i<100 && detect

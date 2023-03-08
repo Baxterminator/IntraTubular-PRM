@@ -9,11 +9,16 @@ n = n(1);
 global L  %m
 global density %pix/m
 density = 50; 
-global seg_sampling
-seg_sampling = 5;
+global seg_sampling 
+seg_sampling = 10;
 
-L = [0.3,0.3,0.3,0.3];
-for i=1:200 
-    Q = generateRandomConfiguration()
-    %x = input(prompt)
+L = [0.5,0.5,0.5,0.5];
+ax = show_sparse(map);
+global SHOW
+SHOW = false;
+
+for i=1:10
+    Q = generateRandomConfiguration()';
+    plot_robot(ax,Q,L);
+    %x = input('input wait')
 end

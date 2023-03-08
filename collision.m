@@ -13,8 +13,7 @@ function collisionDetected = collision(Q)
                 collisionDetected = true;
                 break;
             else
-                
-                if ~full(map(P_p(1), P_p(2)))
+                if ~full(map(P(2), P(1)))
                     collisionDetected = true;
                     break;
                 end

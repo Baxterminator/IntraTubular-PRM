@@ -1,0 +1,16 @@
+function isPossible = delta(q1,q2,isCollision)
+%DELTA Summary of this function goes here
+%   Detailed explanation goes here
+    global conf_sampling
+    isPossible = true;
+    for i=1:conf_sampling
+        if(
+        qi = q1+((i+1)/(conf_sampling+2))*(q2-q1);
+        
+        if(isCollision(qi'))
+            isPossible = false;
+            break;
+        end
+    end
+end
+
