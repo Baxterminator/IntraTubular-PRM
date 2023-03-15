@@ -1,6 +1,10 @@
-function ax = plot_robot(Q, L)
+function ax = plot_robot(Q, L, varargin)
     global map
-    ax = show_sparse(map);
+    if nargin > 2
+        ax = varargin{1};
+    else
+        ax = show_sparse(map);
+    end
     
     global density
     old_x = Q(1)*density;
