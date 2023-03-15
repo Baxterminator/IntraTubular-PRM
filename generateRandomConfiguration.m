@@ -21,9 +21,9 @@ function config = generateRandomConfiguration()
             detect=true;
             while i<100 && detect
                 if j==1
-                    thtj = rand*(2*pi);
+                    thtj = rand*(2*pi)-pi;
                 else
-                    cone_lim = 30*pi/180;
+                    cone_lim = 80*pi/180;
                     thtj = -pi + cone_lim/2 + rand*(2*pi-cone_lim);
                 end
                 Q(j+2)=thtj;

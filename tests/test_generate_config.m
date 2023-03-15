@@ -1,18 +1,17 @@
 filename = 'maps/test1.png';
 global map w h
 [map,w,h] = getImage(filename);
-global list_1x list_1y
-[list_1x,list_1y] = find(map);
+global list_lx list_ly
+[list_ly,list_lx] = find(map);
 global n
-n = size(list_1x);
-n = n(1);
+n = size(list_1x,1);
 global L  %m
 global density %pix/m
 density = 50; 
 global seg_sampling 
 seg_sampling = 10;
 
-L = [0.5,0.5,0.5,0.5];
+L = [0.4,0.4,0.4,0.4];
 ax = show_sparse(map);
 global SHOW
 SHOW = false;
