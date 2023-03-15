@@ -7,9 +7,11 @@ function movie = make_movie(Qset)
     
     n_frames = size(Qset, 2);
     movie(n_frames) = struct('cdata',[],'colormap',[]);
+    
+    global map    
     for frame_id=1:n_frames
         Q = Qset(:, frame_id);
-        ax = plot_robot(Q, L);
+        ax = plot_robot(Q, L, "b");
         movie(frame_id) = getframe(ax);
     end
 end
