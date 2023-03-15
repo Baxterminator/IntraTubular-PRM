@@ -38,8 +38,10 @@ global numberOfNodes envir
     openSet   = [zeros(numberOfNodes,1) , Inf(numberOfNodes,1)] ;
     closedSet = [zeros(numberOfNodes,1) , Inf(numberOfNodes,1)] ;
     
+    
     goalReached = false ;
     % Put start in open. No predecessor (denoted as -1).
+    
     openSet(start,:)= [-1, hStarHandle(nodeInfo(start,:)-nodeInfo(goal,:)) ] ;
     
     %wbHandle = waitbar(0,'Searching the graph...') ;

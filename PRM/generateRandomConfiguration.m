@@ -1,19 +1,19 @@
 function config = generateRandomConfiguration()
     global n density
     %global map
-    global list_1x list_1y
+    global list_x list_y L max_angle
 
     found = false;
 
     while ~found
         index = randi([1,n]);
-        x_p =list_1x(index);
-        y_p =list_1y(index);
+        x_p =list_x(index);
+        y_p =list_y(index);
         x = x_p/density;
         y = y_p/density;
         Q=[x,y,0];
         abandon = false;
-        for j=1:4 %j = indice de theta
+        for j=1:size(L,2) %j = theta index
             if abandon
                 break
             end
@@ -23,8 +23,8 @@ function config = generateRandomConfiguration()
                 if j==1
                     thtj = rand*(2*pi)-pi;
                 else
-                    cone_lim = 80*pi/180;
-                    thtj = -pi + cone_lim/2 + rand*(2*pi-cone_lim);
+                    cone_lim = (180-max_angle)*pi/180;
+                    thtj = -pi + cone_lim + rand*(2*pi-2*cone_lim);
                 end
                 Q(j+2)=thtj;
                 detect = collision(Q);

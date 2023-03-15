@@ -11,13 +11,10 @@ close all;
 % ########################################################################
 %                           ROBOT DEFINITION
 % ########################################################################
-global L max_angle
+global L 
 
 % Define the length of each arm here (in meters)
-L = [0.4, 0.4, 0.4, 0.4];
-
-% Define the maximum angle for theta(i), i>1, in degree
-max_angle = 135;
+L = [0.5, 0.3, 0.4, 0.5];
 
 % ########################################################################
 %                           MAP DEFINITION
@@ -52,7 +49,7 @@ alpha = alpha./max(alpha); % To have alpha(i)<1
 
 % Define how many points are made on the robot arm for the collision
 % detection
-seg_sampling = 10;
+seg_sampling = 5;
 
 % Define how many configurations are checked between two configuration
 % randomly generated to verify the connectedness in the graph
@@ -65,17 +62,6 @@ nb_rd_conf = 1500;
 nb_neigh = 50;
 
 % ########################################################################
-%                         ANIMATION PARAMETERS
-% ########################################################################
-fps = 20;
-
-% Number of configuration to add for smoothing
-interpolation_smoothing = 5;
-
-% Number of time the animation loops
-nb_loop = 10;
-
-% ########################################################################
 %                               RUNNING
 % ########################################################################
 
@@ -86,8 +72,8 @@ graph = createConfigurationGraph(qSet,nb_neigh,@distance,@delta,@collision);
 nb_node = size(graph,1); 
 
 % Add start and goal to graph
-[wasAdded_start,qSet,graph] = addConfiguration(start , qSet , graph ,nb_neigh , @delta , @collision , @distance);
-[wasAdded_goal,qSet,graph] = addConfiguration(goal , qSet , graph ,nb_neigh , @delta , @collision , @distance);
+[wasAdded_start,qSet,graph] = addConfiguration(start , qSet , graph ,nb_voisin , @delta , @collision , @distance);
+[wasAdded_goal,qSet,graph] = addConfiguration(goal , qSet , graph ,nb_voisin , @delta , @collision , @distance);
 
 [path,cost,openSet,closedSet] = astar( nb_node+1 , nb_node+2 , graph , qSet , @distance );
 
@@ -95,14 +81,11 @@ nb_node = size(graph,1);
 path_inverse = flip(path);
 
 % Creating the list of configuration on the path
-qSet_path = zeros(size(path,2),size(L,2)+2);
+qSet_path = zeros(size(path,2),size(L)+2;
 for k=1:size(path_inverse,2)
     qSet_path(k,:) = qSet(path_inverse(1,k),:);
 end
 
 % Adding mid-configuration to smooth the animation
-qSet_new = interpolation(qSet_path,interpolation_smoothing);
-
-movie(make_movie(qSet_new'),nb_loop,fps);
-
+Qset_new = interpolation(Qset_path,5);
 
