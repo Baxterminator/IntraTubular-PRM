@@ -3,7 +3,6 @@ function config = generateRandomConfiguration()
     %global map
     global list_1x list_1y
 
-    
     found = false;
 
     while ~found
@@ -18,14 +17,13 @@ function config = generateRandomConfiguration()
             if abandon
                 break
             end
-            disp(j);
             i=0;    % ième tentative de faire rentrer le bras avec l'angle j dans le tuyau
             detect=true;
             while i<100 && detect
                 if j==1
-                    thtj = rand*(2*pi);
+                    thtj = rand*(2*pi)-pi;
                 else
-                    cone_lim = 30*pi/180;
+                    cone_lim = 80*pi/180;
                     thtj = -pi + cone_lim/2 + rand*(2*pi-cone_lim);
                 end
                 Q(j+2)=thtj;
