@@ -1,14 +1,20 @@
 function movie = make_movie(Qset)
-% Make a movie from a configuration set
-%   -> Q is a n*q matrix, n is the number of parameter, q is the number of
-%   frames
-%   Each column is a configuration
-    global L
+%   Make a movie from a configuration set
+%   -> Q is a n x q matrix, n is the number of parameter, q is the number of
+%       frames. Each column is a configuration
+%
+%   -> (global) L <float[n]>{l1, ..., ln-1} containing the length of each arm of the robot
+%   -> (global) map <sparse matrix> representing the binary map (0 = free, 1 = obstacle)
+%
+%   CÔTE Geoffrey - CORROENNE Timothée
+
+    global L map
     
+    % Pre-allocate the memory for the movie
     n_frames = size(Qset, 2);
     movie(n_frames) = struct('cdata',[],'colormap',[]);
-    
-    global map    
+     
+    % Plot the robot for each frame and save the frame in the array
     for frame_id=1:n_frames
         Q = Qset(:, frame_id);
         ax = plot_robot(Q, L, "b");
