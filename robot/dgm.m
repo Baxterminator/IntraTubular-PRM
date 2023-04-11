@@ -1,6 +1,6 @@
 function T0i = dgm(L,Q, idx_seg, l_seg)
 %   Compute the MDG of the intra-tubular robot
-%   -> Q = (x, y, t1, ..., tn) the configuration vector [in meters/radians]
+%   -> Q = (x, y, t1, ..., tn) the configuration vector [in meters & radians]
 %   -> L = <float[n]>(l1, ..., ln-1) the length of the arms [in meters]
 %   -> idx_seg is the segment onto which we compute the MGD (e.g. 1, 2, ...)
 %   -> l_seg is the length that we should travel onto the wanted segment [in meters]
