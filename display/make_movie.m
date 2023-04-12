@@ -1,6 +1,6 @@
-function movie = make_movie(Qset)
+function movie = make_movie(QSet)
 %   Make a movie from a configuration set
-%   -> Q is a n x q matrix, n is the number of parameter, q is the number of
+%   -> QSet is a n x q matrix, n is the number of parameter, q is the number of
 %       frames. Each column is a configuration
 %
 %   -> (global) L <float[n]>{l1, ..., ln-1} containing the length of each arm of the robot
@@ -11,12 +11,12 @@ function movie = make_movie(Qset)
     global L map
     
     % Pre-allocate the memory for the movie
-    n_frames = size(Qset, 2);
+    n_frames = size(QSet, 2);
     movie(n_frames) = struct('cdata',[],'colormap',[]);
      
     % Plot the robot for each frame and save the frame in the array
     for frame_id=1:n_frames
-        Q = Qset(:, frame_id);
+        Q = QSet(:, frame_id);
         ax = plot_robot(Q, L, "b");
         movie(frame_id) = getframe(ax);
     end
