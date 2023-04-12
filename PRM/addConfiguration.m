@@ -17,15 +17,17 @@ function [wasAdded, QSet, graph] = addConfiguration(q, QSet, graph, ...
     %   <- graph <graph> the updated graph with the new configuration Q
     %
     %   CÔTE Geoffrey - CORROENNE Timothée
-    % Add configuration q to a graph of configurations.
 
+    % Look for the kNeighbors nearest configuration
     nearest = knnsearch(QSet, q, 'K', kNeighbors, 'NSMethod', 'exhaustive');
     nbNodes = size(graph, 1);
     wasAdded = false; % Until proved otherwise.
 
     for i = 1:kNeighbors
 
-        if delta(q, QSet(nearest(i), :), isCollision) %collisionFreeSegment( q , QSet(nearest(i),:) , delta , radius ) % TO CHANGE
+        % If the configuration is accessible from the current configuration 
+        % QSet(nearest(i)) then add it to the graph and end the result here
+        if delta(q, QSet(nearest(i), :), isCollision)
             graph(nbNodes + 1, nearest(i)) = distance_conf(q - QSet(nearest(i), :));
             graph(nearest(i), nbNodes + 1) = graph(nbNodes + 1, nearest(i));
             QSet(nbNodes + 1, :) = q;
