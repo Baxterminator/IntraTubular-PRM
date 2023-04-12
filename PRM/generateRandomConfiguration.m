@@ -1,4 +1,4 @@
-function config = generateRandomConfiguration(m)
+function config = generateRandomConfiguration()
     %   Generate an array of random configuration
     %
     %   -> m <int> the number of parameter a configuration has

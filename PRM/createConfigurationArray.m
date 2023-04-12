@@ -1,4 +1,4 @@
-function Q_array = createConfigurationArray(m, n)
+function Q_array = createConfigurationArray(n)
     %   Generate an array of random configuration
     %
     %   -> m <int> the number of parameters a configuration has
@@ -8,8 +8,10 @@ function Q_array = createConfigurationArray(m, n)
     %
     %   CÔTE Geoffrey - CORROENNE Timothée
 
-    Q_array = zeros([m,n]);
-    for i=1:m
-        Q_array(i,:) = generateRandomConfiguration(m);
+    global L
+    
+    Q_array = zeros([n, size(L,2)+2]);
+    for i=1:n
+        Q_array(i,:) = generateRandomConfiguration();
     end
 end
