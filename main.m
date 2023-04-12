@@ -105,4 +105,6 @@ end
 % Adding mid-configuration to smooth the animation
 qSet_new = interpolation(qSet_path, interpolation_smoothing);
 
-movie(make_movie(qSet_new'), nb_loop, fps);
+mov = make_movie(qSet_new')
+save_movie(mov);
+movie(mov, nb_loop, fps);

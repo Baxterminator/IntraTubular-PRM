@@ -1,6 +1,6 @@
 function movie = make_movie(QSet)
     %   Make a movie from a configuration set
-    %   -> QSet is a n x q matrix, n is the number of parameter, q is the number of
+    %   -> QSet <n x q matrix>, n is the number of parameter, q is the number of
     %       frames. Each column is a configuration
     %
     %   -> (global) L <float[n]>{l1, ..., ln-1} containing the length of each arm of the robot
