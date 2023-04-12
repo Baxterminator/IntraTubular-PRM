@@ -1,8 +1,12 @@
-# PLANI_Matlab
+# Simple Intratubular PRM Planning
 
 Authors:
 - [Geoffrey Côte](https://github.com/Meltwin) 
 - [Timothée Corroënne](https://github.com/TCorroenne)
+
+Distributed under the MIT Licence.
+
+---
 
 This repository is a project made during the path planning cours of the robotics engineering cursus at Centrale Nantes.
 
@@ -12,6 +16,8 @@ The script was made to work for any N-R serial planar robot. To configurate the 
 
 We made some bricks to use existing PRM function and an A* lib for matlab using sparse matrix for better optimisation. For more information, refer to the report in this repository (in French only).
 
-Two videos are availible to show that a PRM algorithm does not always give an optimal trajectory. These are located in the out/ folder:
-- 23-04-13_00-32-43.914.mp4 is a case where a non-optimal solution was found
-- 23-04-13_00-40-58.073.mp4 is on the other hand a case where the solution seems quite close to an optimal one
+Two videos are availible to show that a PRM algorithm does not always give an optimal trajectory. These are located in the **out/** folder:
+- **out/Non-optimal-path.mp4** is a case where a non-optimal solution was found
+- **out/Quite-optimal-path.mp4** is on the other hand a case where the solution seems quite close to an optimal one
+
+Moreover, this repo gives several bricks for DGM, 2D occupancy maps, animation creation and saving, ...
